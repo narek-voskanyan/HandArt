@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ՀանդԱՐՏ Թատրոն</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Playfair Display (headings) and Source Sans Pro (body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg py-6">
+        <!-- Adjusted flex properties for centering the navigation -->
+        <div class="container mx-auto flex flex-col md:flex-row items-center px-4">
+            <div class="flex items-center mb-4 md:mb-0 md:w-1/10">
+                <!-- Logo section, takes 10% width on medium screens and up -->
+                <img src="https://i.imgur.com/1L4qYXZ.png" alt="ՀանդԱՐՏ Թատրոնի լոգո" class="h-20 w-auto object-contain rounded-md">
+            </div>
+            <!-- Navigation section, takes remaining width and centers its content -->
+            <nav class="flex-grow flex justify-center md:w-9/10">
+                <ul class="flex flex-wrap justify-center md:justify-end space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-10">
+                    <li><a href="#about" class="hover:text-emerald-200 transition duration-300 ease-in-out text-xl font-medium">Մեր մասին</a></li>
+                    <li><a href="#shows" class="hover:text-emerald-200 transition duration-300 ease-in-out text-xl font-medium">Առաջիկա ներկայացումներ</a></li>
+                    <li><a href="#gallery" class="hover:text-emerald-200 transition duration-300 ease-in-out text-xl font-medium">Պատկերասրահ</a></li>
+                    <li><a href="#ticket-ordering" class="hover:text-emerald-200 transition duration-300 ease-in-out text-xl font-medium">Տոմսերի պատվեր</a></li>
+                    <li><a href="#contact" class="hover:text-emerald-200 transition duration-300 ease-in-out text-xl font-medium">Կապ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-black text-white py-20 md:py-32 overflow-hidden">
+        <!-- Updated background image source with Imgur direct link -->
+        <img src="https://i.imgur.com/R46QLuk.jpg"
+             alt="Թատրոնի հանդիսատես"
+             class="absolute inset-0 w-full h-full object-cover opacity-60"
+             onerror="console.error('Failed to load background image: handart photo.jpg'); this.src='https://placehold.co/1920x1080/4a0e7a/ffffff?text=Image+Load+Error';">
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-up">Զգացեք կենդանի կատարման կախարդանքը</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in-up delay-200">
+                Որտեղ պատմությունները կենդանանում են, և զգացմունքները գրավում են բեմը։ Միացե՛ք մեզ անմոռանալի թատերական ճանապարհորդության համար։
+            </p>
+            <a href="#shows" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 animate-fade-in-up delay-400">
+                Դիտել առաջիկա ներկայացումները
+            </a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="relative py-16 md:py-24 bg-white overflow-hidden">
+        <!-- Background image for About Us section -->
+        <img src="https://placehold.co/1920x1080/228B23/ffffff?text=Թատրոնի+ինտերիերի+ֆոն"
+             alt="Թատրոնի ինտերիերի ֆոն"
+             class="absolute inset-0 w-full h-full object-cover opacity-10">
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-4xl font-bold text-center mb-12 text-emerald-800">ՀանդԱՐՏ Թատրոնի մասին</h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-12 bg-white bg-opacity-90 p-8 rounded-xl shadow-lg">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <!-- Updated image source for About Us section -->
+                    <img src="https://imgur.com/ZTk5Iec.jpg" alt="ՀանդԱՐՏ Թատրոնի դահլիճ" class="rounded-xl shadow-xl transform transition duration-500 hover:scale-105">
+                </div>
+                <div class="md:w-1/2 text-lg leading-relaxed text-gray-700">
+                    <p class="mb-6">
+                        Հիմնադրվելով 1995 թվականին՝ ՀանդԱՐՏ թատրոնը եղել է տեղական արվեստի համայնքի անկյունաքարը՝ նվիրված բարձրորակ թատերական ներկայացումներ հասցնելուն բոլոր տարիքի հանդիսատեսներին։ Մեր առաքելությունն է ոգեշնչել, զվարճացնել և մտածել տալ կենդանի կատարման ուժի միջոցով։
+                    </p>
+                    <p class="mb-6">
+                        Մենք հպարտանում ենք պիեսների բազմազան տեսականի ցուցադրելով՝ հավերժական դասականներից մինչև նորարարական նոր գործեր, որոնք կատարվում են դերասանների, ռեժիսորների և անձնակազմի տաղանդավոր անսամբլի կողմից։ Մեր ժամանակակից հարմարությունները ապահովում են ընկղմվող և հարմարավետ փորձ յուրաքանչյուր հաճախորդի համար։
+                    </p>
+                    <p>
+                        Միացե՛ք մեզ, քանի որ մենք շարունակում ենք ընդլայնել թատրոնի սահմանները և ստեղծել անմոռանալի պահեր մեր սիրելի հանդիսատեսի համար։
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Shows Section -->
+    <section id="shows" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8 text-emerald-800">Առաջիկա ներկայացումներ</h2>
+
+            <!-- Search Bar for Shows -->
+            <div class="mb-8 flex justify-center">
+                <input type="text" id="showSearch" placeholder="Որոնել ներկայացումներ..." class="w-full max-w-md p-3 rounded-lg shadow-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition duration-200">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="showCardsContainer">
+                <!-- Show cards will be dynamically inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Plays Section -->
+    <section id="gallery" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-emerald-800">Պիեսների պատկերասրահ</h2>
+            <div class="carousel-container">
+                <div class="carousel-slides" id="carouselSlides">
+
+                    <!-- New Gallery Item: Նռնենի (new photo) -->
+                    <div class="carousel-slide">
+                        <img src="https://imgur.com/QejwGDd.jpg" alt="Նռնենի ներկայացումից տեսարան">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-emerald-700">Նռնենի</h3>
+                            <p class="text-gray-600">Ներկայացումից տեսարան</p>
+                        </div>
+                    </div>
+                    <!-- New Gallery Item: Նռնենի by Արծրուն Հարությունյան -->
+                    <div class="carousel-slide">
+                        <img src="https://imgur.com/xNbIJJq.jpg" alt="Նռնենի ներկայացում Արծրուն Հարությունյանի մասնակցությամբ">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-emerald-700">Նռնենի</h3>
+                            <p class="text-gray-600">Արծրուն Հարությունյան</p>
+                        </div>
+                    </div>
+                    <!-- New Gallery Item: Նռնենի by Ագնեսա Շահնազարյան և Արծրուն Հարությունյան -->
+                    <div class="carousel-slide">
+                        <img src="https://imgur.com/YGbIM6F.jpg" alt="Նռնենի ներկայացում Ագնեսա Շահնազարյանի և Արծրուն Հարությունյանի մասնակցությամբ">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-emerald-700">Նռնենի</h3>
+                            <p class="text-gray-600">Արծրուն Հարությունյան և Ագնեսա Շահնազարյան</p>
+                        </div>
+                    </div>
+
+
+                    <!-- New Gallery Item: Նռնենի by Լուիզա Ղամբարյան -->
+                    <div class="carousel-slide">
+                        <img src="https://imgur.com/h1MBtRT.jpg" alt="Նռնենի ներկայացում Լուիզա Ղամբարյանի մասնակցությամբ">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-emerald-700">Նռնենի</h3>
+                            <p class="text-gray-600">Լուիզա Ղամբարյան</p>
+                        </div>
+                    </div>
+                    <!-- New Gallery Item: Նռնենի by Ագնեսսա Շահնազարյան -->
+                    <div class="carousel-slide">
+                        <img src="https://imgur.com/Z4ggLoa.jpg" alt="Նռնենի ներկայացում Ագնեսսա Շահնազարյանի մասնակցությամբ">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-emerald-700">Նռնենի</h3>
+                            <p class="text-gray-600">Ագնեսսա Շահնազարյան</p>
+                        </div>
+                    </div>
+                    <!-- New Gallery Item: Նռնենի by Ջուլլետա Սարգիսյան -->
+                    <div class="carousel-slide">
+                        <img src="https://imgur.com/6rJIu5I.jpg" alt="Նռնենի ներկայացում Ջուլլետա Սարգիսյանի մասնակցությամբ">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-emerald-700">Նռնենի</h3>
+                            <p class="text-gray-600">Ջուլլետա Սարգիսյան</p>
+                        </div>
+                    </div>
+                    <!-- New Gallery Item: Ցանկապատ -->
+                    <div class="carousel-slide">
+                        <img src="https://imgur.com/KN1V66c.jpg" alt="Ցանկապատ ներկայացումից տեսարան">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-emerald-700">Ցանկապատ</h3>
+                            <p class="text-gray-600">Թատրոնի ներկայացումից տեսարան</p>
+                        </div>
+                    </div>
+                    <!-- New Gallery Item: Ցանկապատ (second image) -->
+                    <div class="carousel-slide">
+                        <img src="https://imgur.com/VvhC81E.jpg" alt="Ցանկապապ ներկայացումից երկրորդ տեսարան">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-emerald-700">Ցանկապատ</h3>
+                            <p class="text-gray-600">Թատրոնի ներկայացումից տեսարան</p>
+                        </div>
+                    </div>
+                    <!-- New Gallery Item: Սպիտակ արևներ -->
+                    <div class="carousel-slide">
+                        <img src="https://imgur.com/XZ4swy9.jpg" alt="Սպիտակ արևներ ներկայացումից տեսարան">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-emerald-700">Սպիտակ արևներ</h3>
+                            <p class="text-gray-600">Ներկայացումից տեսարան</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel Navigation Buttons -->
+                <button class="carousel-button prev" id="carouselPrev">&#10094;</button>
+                <button class="carousel-button next" id="carouselNext">&#10095;</button>
+                <!-- Carousel Dots -->
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ticket Ordering Section -->
+    <section id="ticket-ordering" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-emerald-800">Տոմսերի պատվեր</h2>
+            <div class="text-center">
+                <a href="https://www.tomsarkgh.am/en/venue/3039/%D4%B2%D5%B5%D5%B8%D6%82%D6%80%D5%A1%D5%AF%D5%A1%D5%B6%D5%AB-%D5%80%D5%A1%D5%B6%D5%A4-Art-%D5%A1%D5%B5%D5%A3%D5%AB.html"
+                   target="_blank"
+                   class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                    Այցելել տոմսերի պատվերի կայք
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-emerald-800">Կապ մեզ հետ</h2>
+            <div class="flex flex-col md:flex-row md:space-x-12 items-start">
+                <!-- Contact Info and Map Link Wrapper -->
+                <div class="md:w-1/2 mb-8 md:mb-0 order-2 md:order-1">
+                    <p class="text-lg leading-relaxed text-gray-700 mb-6">
+                        Հարցեր ունե՞ք կամ ցանկանու՞մ եք ավելին իմանալ ՀանդԱՐՏ թատրոնի մասին։ Ազատորեն կապվեք մեզ հետ՝ օգտագերելով ստորև նշված կոնտակտային տվյալները կամ լրացրեք ձևաթուղթը։
+                    </p>
+                    <div class="space-y-4 text-gray-700">
+                        <p class="flex items-center text-lg">
+                            <svg class="w-6 h-6 mr-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a8 8 0 00-8 8c0 2.923 1.517 5.6 4 7.037V19a1 1 0 001 1h2a1 1 0 001-1v-1.963c2.483-1.437 4-4.114 4-7.037a8 8 0 00-8-8zm0 14a6 6 0 100-12 6 6 0 000 12z" clip-rule="evenodd"></path></svg>
+                            <a href="https://maps.app.goo.gl/wm5enU4njDQpTiki6" target="_blank" class="hover:text-emerald-400 transition duration-300 ease-in-out">Հայաստան, Բյուրական</a>
+                        </p>
+                        <p class="flex items-center text-lg">
+                            <svg class="w-6 h-6 mr-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                            077 094044
+                        </p>
+                        <p class="flex items-center text-lg">
+                            <svg class="w-6 h-6 mr-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                            info@grandstagetheater.org
+                        </p>
+                    </div>
+                </div>
+                <!-- Contact Form -->
+                <div class="md:w-1/2 w-full order-1 md:order-2">
+                    <form class="bg-gray-50 p-8 rounded-xl shadow-lg">
+                        <div class="mb-5">
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Անուն</label>
+                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition duration-200" placeholder="Ձեր անունը">
+                        </div>
+                        <div class="mb-5">
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Էլ. փոստ</label>
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition duration-200" placeholder="ձեր@օրինակ.com">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Հաղորդագրություն</label>
+                            <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition duration-200" placeholder="Ձեր հաղորդագրությունը..."></textarea>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                                Ուղարկել հաղորգագրություն
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 ՀանդԱՐՏ Թատրոն. Բոլոր իրավունքները պաշտպանված են։</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="https://www.facebook.com/HandArt.Byurakan" target="_blank" class="text-white hover:text-emerald-400 transition duration-300 ease-in-out">
+                    <i class="fab fa-facebook-f text-2xl"></i>
+                </a>
+                <!-- Instagram Link Added -->
+                <a href="https://www.instagram.com/handart.garden/" target="_blank" class="text-white hover:text-emerald-400 transition duration-300 ease-in-out">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+                <a href="#" class="hover:text-emerald-400 transition duration-300 ease-in-out">Գաղտնիության քաղաքականություն</a>
+                <a href="#" class="hover:text-emerald-400 transition duration-300 ease-in-out">Ծառայության պայմաններ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Show Details Modal -->
+    <div id="showDetailsModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button" id="closeModalBtn">&times;</button>
+            <h3 id="modalTitle" class="text-3xl font-bold mb-4 text-emerald-800 text-center"></h3>
+
+            <!-- Modal Image Carousel -->
+            <div id="modalImageCarousel" class="modal-image-carousel">
+                <img id="modalImage" src="" alt="Ներկայացման պատկեր" class="rounded-md">
+                <button id="modalImagePrev" class="modal-image-nav-button prev">&#10094;</button>
+                <button id="modalImageNext" class="modal-image-nav-button next">&#10095;</button>
+            </div>
+
+            <p id="modalDescription" class="text-gray-700 mb-4"></p>
+            <!-- Container for full description and read more button -->
+            <div id="readMoreContainer" class="mb-4">
+                <p id="modalFullDescription" class="text-gray-700 text-base leading-relaxed whitespace-pre-line hidden"></p>
+                <button id="modalReadMoreBtn" class="text-emerald-600 hover:text-emerald-800 font-semibold mt-2 hidden px-4 py-2 rounded-md bg-emerald-100"></button>
+            </div>
+
+            <div class="flex items-center text-gray-600 mb-2">
+                <svg class="w-5 h-5 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                <span id="modalDates"></span>
+            </div>
+            <div class="flex items-center text-gray-600 mb-2">
+                <svg class="w-5 h-5 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                <span id="modalTime"></span>
+            </div>
+            <p class="flex items-center text-gray-600 mb-4">
+                <i class="fas fa-ticket-alt w-5 h-5 mr-2 text-emerald-500"></i>
+                <span id="modalPrice"></span>
+            </p>
+            <!-- New element for actors heading -->
+            <p id="modalActorsHeading" class="text-gray-700 text-xl font-bold mb-2"></p>
+            <!-- Container for actors list and images -->
+            <div id="modalActorsContainer" class="flex flex-col gap-4 items-start mb-4"></div>
+
+            <!-- "Ստանալ տոմսեր" button inside the modal -->
+            <div id="modalTicketButtonContainer" class="mt-4">
+                <a id="modalTicketLink" href="#" target="_blank" class="w-full inline-block text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out">
+                    Ստանալ տոմսեր
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Data for upcoming shows
+            const showsData = [
+                {
+                    title: "Նռնենի",
+                    description: "Դրամատիկական կատակերգություն՝ իրական դեպքերի հիման վրա։",
+                    fullDescription: "ՊՐԵՄԻԵՐԱ #ՀանդArt-ում\n«ՆՌՆԵՆԻ»\n\nԴրամատիկական կատակերգություն՝ իրական դեպքերի հիման վրա։\nՍիրելի հանդիսատես,\nՀանդArt մշակութային այգին կրկին բացում է իր դռները նոր թատերական պատմության առաջ։\n\n«ՆՌՆԵՆԻ»՝ ներկայացում սիրո, խղճի և մարդկային հարաբերությունների մասին։ Երբեմն մի փոքր քայլը կարող է ամբողջությամբ փոխել ճակատագրերը։ Երբ սերը դառնում է պարտք, իսկ խիղճը՝ որոշում, մարդը կանգնում է բարդ ընտրությունների առաջ։\nԻրական դեպքերի հիման վրա ստեղծված այս կատակերգությունը կզարմացնի Ձեզ անսպասելի շրջադարձերով, կծիծաղեցնի սուր հումորով և կհուզի անկեղծությամբ։\nՆերկայացումը համադրություն է թեթևության ու խորության, պարզության ու բարդ իրականության միջև։", // Removed redundant author/director line
+                    actorsHeading: "Դերասաններ:", // Changed title as requested
+                    actorList: [
+                        { name: "ՀՀ վաստակավոր արտիստ՝ Ջուլիետա Ստեփանյան", imageUrl: "https://imgur.com/BTyfn0u.jpg" },
+                        { name: "ՀՀ վաստակավոր արտիստ՝ Լուիզա Ղամբարյան", imageUrl: "https://imgur.com/h6BfnNn.jpg" },
+                        { name: "Ագնեսա Շահնազարյան", imageUrl: "https://imgur.com/BTjsMcP.jpg" },
+                        { name: "Արծրուն Հարությունյան", imageUrl: "https://imgur.com/ko5b5yl.jpg" },
+                        { name: "Բեմադրիչ՝ Տիգրան Գյուլումյան", imageUrl: "https://imgur.com/k9hip2k.jpg" } // Added director with image
+                    ],
+                    image: "https://imgur.com/XVynDdE.jpg",
+                    popupImages: ["https://imgur.com/XVynDdE.jpg", "https://imgur.com/xNbIJJq.jpg", "https://imgur.com/YGbIM6F.jpg", "https://imgur.com/h1MBtRT.jpg", "https://imgur.com/Z4ggLoa.jpg", "https://imgur.com/6rJIu5I.jpg"],
+                    dates: "Մինչև 28 օգոստոսի, 2025",
+                    time: "18։00 կամ 19։00",
+                    price: "5000, 6000 և 7000 ՀՀ դրամ:", // Updated price
+                    ticketLink: "https://www.tomsarkgh.am/en/event/49254/%D4%B6%D5%BC%D5%B6%D5%A5%D5%B6%D5%AB.html"
+                },
+                {
+                    title: "Խաղողի Այգին",
+                    description: "Սարոյանի տողերում խոսում է մարդկային ապրումների խորությունը, հեգնանքը կյանքի մասին, և հավերժ երիտասարդ հույսը, որ ապրում է յուրաքանչյուր սրտում։", // Reverted to shorter description
+                    fullDescription: "Սարոյանի տողերում խոսում է մարդկային ապրումների խորությունը, հեգնանքը կյանքի մասին, և հավերժ երիտասարդ հույսը, որ ապրում է յուրաքանչյուր սրտում։ Այս ներկայացումը ձեզ կտանի հուզիչ ճանապարհորդության, որը կհուզի ձեր հոգին և կթողնի անմոռանալի տպավորություններ։ Կերպարների խորությունը, երաժշտության գեղեցկությունը և բեմադրության վարպետությունը կստեղծեն իրական կախարդանք։ Միացեք մեզ այս հրաշալի փորձառության համար։",
+                    actorsHeading: "Դերասաններ:", // Added actors heading
+                    actorList: [
+                        { name: "Ալբերտ Սաֆարյան", imageUrl: "https://imgur.com/ywK39ho.jpg" },
+                        { name: "Անահիտ Կիրակոսյան", imageUrl: "https://imgur.com/E18rI6j.jpg" },
+                        { name: "Սարգիս Չոլոյան", imageUrl: "https://imgur.com/mktNGBG.jpg" }, // Added Sargis Choloyan
+                        { name: "Վաչե Երիցյան", imageUrl: "https://imgur.com/OSWJy9w.jpg" }, // Added Vache Yeritsyan
+                        { name: "Արծրուն Հարությունյան", imageUrl: "https://imgur.com/ko5b5yl.jpg" }, // Added Artsrun Harutyunyan
+                        { name: "Արամե Սողոմոնյան", imageUrl: "https://imgur.com/QbGK02Y.jpg" }  // Added Arame Soghomonyan
+                    ],
+                    image: "https://imgur.com/XlVUOY2.jpg",
+                    popupImages: ["https://imgur.com/XlVUOY2.jpg"],
+                    dates: "Հուլիսի 31, Օգոստոսի 1, 10, 17",
+                    time: "Հուլիսի 31-ին՝ 19:00, Օգոստոսի 1, 10, 17-ին՝ 18:00",
+                    price: "5000 - 10000 AMD",
+                    ticketLink: "https://www.tomsarkgh.am/en/event/49373/%D4%BD%D5%A1%D5%B2%D5%B8%D5%B2%D5%AB-%D4%B1%D5%B5%D5%A3%D5%AB.html"
+                },
+                {
+                    title: "Սպիտակ արևներ",
+                    description: "Հուզիչ մյուզիքլ՝ լի հիշվող մեղեդիներով և սրտաճմլիկ պատմությամբ։", // Reverted to shorter description
+                    fullDescription: "Հուզիչ մյուզիքլ՝ լի հիշվող մեղեդիներով և սրտաճմլիկ պատմությամց։ Բացահայտեք երաժշտության ուժը, որը միավորում է մարդկանց և փոխում ճակատագրերը այս անմոռանալի ներկայացման մեջ։",
+                    actorsHeading: "",
+                    actorList: [],
+                    image: "https://imgur.com/mcT4x1h.jpg",
+                    popupImages: ["https://imgur.com/mcT4x1h.jpg"],
+                    dates: "Դեկ 1 - Դեկ 10, 2025",
+                    time: "19:00 (Ցերեկային՝ 14:00 հանգստյան օրերին)",
+                    price: "6000 AMD",
+                    ticketLink: "https://www.tomsarkgh.am/en/event/46918/%D5%8D%D5%BA%D5%AB%D5%BF%D5%A1%D5%AF-%D5%A1%D6%80%D6%87%D5%B6%D5%A5%D6%80.html" // Updated ticket link
+                },
+                {
+                    title: "Ամառային գիշերվա երազ",
+                    description: "Շեքսպիրի հմայիչ կատակերգությունը կախարդական անտառների և խճճված սիրո մասին։",
+                    fullDescription: "Վիլյամ Շեքսպիրի հմայիչ կատակերգությունը կախարդական անտառների, փերիի կախարդանքի և խճճված սիրո պատմությունների մասին։ Զգացեք սիրո և ծիծաղի կախարդանքը։",
+                    actorsHeading: "",
+                    actorList: [],
+                    image: "https://placehold.co/400x250/4CAF50/ffffff?text=Դասական+պիես",
+                    popupImages: ["https://placehold.co/400x250/4CAF50/ffffff?text=Դասական+պիես"],
+                    dates: "Հունվ 10 - Հունվ 15, 2026",
+                    time: "19:00",
+                    price: "5500 AMD",
+                    ticketLink: "https://www.tomsarkgh.am/en/venue/3039/%D4%B2%D5%B5%D5%B8%D6%82%D6%80%D5%A1%D5%AF%D5%A1%D5%B6%D5%AB-%D5%80%D5%A1%D5%B6%D5%A4-Art-%D5%A1%D5%B5%D5%A3%D5%AB.html"
+                },
+                {
+                    title: "Կախարդական ծառատունը",
+                    description: "Հաճելի արկած ամբողջ ընտանիքի համար՝ լի երգերով և ծիծծաղով։",
+                    fullDescription: "Հաճելի և ոգեշնչող արկած ամբողջ ընտանիքի համար՝ լի երգերով, ծիծաղով և անմոռանալի կերպարներով։ Բացահայտեք կախարդական ծառատան գաղտնիքները։",
+                    actorsHeading: "",
+                    actorList: [],
+                    image: "https://placehold.co/400x250/8BC34A/ffffff?text=Մանկական+ներկայացում",
+                    popupImages: ["https://placehold.co/400x250/8BC34A/ffffff?text=Մանկական+ներկայացում"],
+                    dates: "Փետ 1 - Փետ 5, 2026",
+                    time: "11:00 (Ցերեկային)",
+                    price: "3000 AMD",
+                    ticketLink: "https://www.tomsarkgh.am/en/venue/3039/%D4%B2%D5%B5%D5%B8%D6%82%D6%80%D5%A1%D5%AF%D5%A1%D5%B6%D5%AB-%D5%80%D5%A1%D5%B6%D5%A4-Art-%D5%A1%D5%B5%D5%A3%D5%AB.html"
+                },
+                {
+                    title: "Արձագանքներ քաղաքում",
+                    description: "Ժամանակակից դրամա՝ ուսումնասիրող քաղաքային կյանքը և մարդկային կապերը։",
+                    fullDescription: "Ժամանակակից դրամա, որն ուսումնասիրում է քաղաքային կյանքի բարդությունները և մարդկային կապերի նրբությունները։ Հուզիչ և մտածելու տեղիք տվող պատմություն։",
+                    actorsHeading: "",
+                    actorList: [],
+                    image: "https://placehold.co/400x250/A5D6A7/ffffff?text=Ժամանակակից+դրամա",
+                    popupImages: ["https://placehold.co/400x250/A5D6A7/ffffff?text=Ժամանակակից+դրամա"],
+                    dates: "Մարտ 1 - Մարտ 7, 2026",
+                    time: "19:30",
+                    price: "4500 AMD",
+                    ticketLink: "https://www.tomsarkgh.am/en/venue/3039/%D4%B2%D5%B5%D5%B8%D6%82%D6%80%D5%A1%D5%AF%D5%A1%D5%B6%D5%AB-%D5%80%D5%A1%D5%B6%D5%A4-Art-%D5%A1%D5%B5%D5%A3%D5%AB.html"
+                }
+            ];
+
+            const showCardsContainer = document.getElementById('showCardsContainer');
+            const searchInput = document.getElementById('showSearch');
+
+            // Modal elements
+            const showDetailsModal = document.getElementById('showDetailsModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription'); // Short description
+            const modalFullDescription = document.getElementById('modalFullDescription'); // Full description
+            const modalReadMoreBtn = document.getElementById('modalReadMoreBtn'); // Modal's Read More button
+            const modalDates = document.getElementById('modalDates');
+            const modalTime = document.getElementById('modalTime');
+            const modalPrice = document.getElementById('modalPrice');
+            const modalTicketLink = document.getElementById('modalTicketLink');
+            const modalActorsHeading = document.getElementById('modalActorsHeading'); // New element for actors heading
+            const modalActorsContainer = document.getElementById('modalActorsContainer'); // Container for actors list and images
+            // Removed modalAuthorAndDirectorHeading and modalAuthorAndDirector as they are no longer needed separately
+
+            // Modal Image Carousel elements
+            const modalImage = document.getElementById('modalImage');
+            const modalImagePrev = document.getElementById('modalImagePrev');
+            const modalImageNext = document.getElementById('modalImageNext');
+            let currentModalImageIndex = 0;
+            let currentShowPopupImages = [];
+
+            /**
+             * Renders the show cards based on the showsData array.
+             * Filters cards based on the search term if provided.
+             */
+            function renderShowCards(searchTerm = '') {
+                showCardsContainer.innerHTML = ''; // Clear existing cards
+                const filteredShows = showsData.filter(show => {
+                    const title = show.title.toLowerCase();
+                    const description = show.description.toLowerCase();
+                    return title.includes(searchTerm.toLowerCase()) || description.includes(searchTerm.toLowerCase());
+                });
+
+                if (filteredShows.length === 0) {
+                    showCardsContainer.innerHTML = '<p class="text-center text-gray-600 col-span-full">Ներկայացումներ չեն գտնվել։</p>';
+                    return;
+                }
+
+                filteredShows.forEach((show, index) => {
+                    const showCard = document.createElement('div');
+                    showCard.classList.add('show-card', 'bg-white', 'rounded-xl', 'shadow-lg', 'overflow-hidden', 'transform', 'transition', 'duration-300', 'hover:scale-105', 'hover:shadow-2xl');
+                    showCard.innerHTML = `
+                                <img src="${show.image}" alt="${show.title} ներկայացման պատկեր" class="w-full h-48 object-cover">
+                                <div class="p-6 flex flex-col h-full">
+                                    <h3 class="show-title text-2xl font-semibold mb-3 text-emerald-700 cursor-pointer hover:text-emerald-500 transition-colors duration-200" data-index="${index}">
+                                        ${show.title}
+                                    </h3>
+                                    <p class="show-description text-gray-600 mb-4">
+                                        ${show.description}
+                                    </p>
+                                    <div class="flex items-center text-gray-500 mb-2">
+                                        <svg class="w-5 h-5 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                                        <span>Ամսաթվեր: ${show.dates}</span>
+                                    </div>
+                                    <div class="flex items-center text-gray-500 mb-2">
+                                        <svg class="w-5 h-5 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                                        <span>Ժամը: ${show.time}</span>
+                                    </div>
+                                    <p class="flex items-center text-gray-500 mb-4">
+                                        <i class="fas fa-ticket-alt w-5 h-5 mr-2 text-emerald-500"></i>
+                                        Տոմսերի արժեքը՝ ${show.price}
+                                    </p>
+                                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                                        <a href="${show.ticketLink}" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out text-center">
+                                            Ստանալ տոմսեր
+                                        </a>
+                                    </div>
+                                </div>
+                            `;
+                    showCardsContainer.appendChild(showCard);
+                });
+
+                // Add event listeners to the show titles to open the modal
+                document.querySelectorAll('.show-title').forEach(titleElement => {
+                    titleElement.addEventListener('click', (event) => {
+                        const index = event.target.dataset.index;
+                        openShowDetails(parseInt(index));
+                    });
+                });
+            }
+
+            /**
+             * Updates the image displayed in the modal's mini-carousel.
+             */
+            function updateModalImage() {
+                if (currentShowPopupImages && currentShowPopupImages.length > 0) {
+                    modalImage.src = currentShowPopupImages[currentModalImageIndex];
+                    modalImagePrev.style.display = currentShowPopupImages.length > 1 ? 'block' : 'none';
+                    modalImageNext.style.display = currentShowPopupImages.length > 1 ? 'block' : 'none';
+                } else {
+                    modalImage.src = ''; // Clear image if no images available
+                    modalImagePrev.style.display = 'none';
+                    modalImageNext.style.display = 'none';
+                }
+            }
+
+            // Navigation for modal image carousel
+            modalImagePrev.addEventListener('click', () => {
+                currentModalImageIndex = (currentModalImageIndex - 1 + currentShowPopupImages.length) % currentShowPopupImages.length;
+                updateModalImage();
+            });
+
+            modalImageNext.addEventListener('click', () => {
+                currentModalImageIndex = (currentModalImageIndex + 1) % currentShowPopupImages.length;
+                updateModalImage();
+            });
+
+
+            /**
+             * Opens the modal with details for the selected show.
+             * @param {number} index - The index of the show in the showsData array.
+             */
+            function openShowDetails(index) {
+                const show = showsData[index];
+                if (show) {
+                    modalTitle.textContent = show.title;
+                    modalDescription.textContent = show.description; // Short description
+                    modalDates.textContent = show.dates;
+                    modalTime.textContent = show.time;
+                    modalPrice.textContent = show.price;
+                    modalTicketLink.href = show.ticketLink;
+
+                    // Handle full description and "Read More" button in modal
+                    if (show.fullDescription && show.fullDescription !== show.description) {
+                        modalFullDescription.textContent = show.fullDescription;
+                        modalFullDescription.classList.add('hidden'); // Initially hidden
+                        modalReadMoreBtn.textContent = 'Կարդալ ավելին...';
+                        modalReadMoreBtn.classList.remove('hidden');
+                        modalReadMoreBtn.onclick = () => {
+                            modalFullDescription.classList.toggle('hidden');
+                            modalReadMoreBtn.textContent = modalFullDescription.classList.contains('hidden') ? 'Կարդալ ավելին...' : 'Թաքցնել'; // Changed to 'Թաքցնել'
+                        };
+                    } else {
+                        modalFullDescription.textContent = ''; // Clear full description if not needed
+                        modalFullDescription.classList.add('hidden'); // Ensure it's hidden
+                        modalReadMoreBtn.classList.add('hidden'); // Hide button
+                    }
+
+
+                    // Display actors heading if available
+                    if (show.actorsHeading) {
+                        modalActorsHeading.textContent = show.actorsHeading;
+                        modalActorsHeading.style.display = 'block';
+                    } else {
+                        modalActorsHeading.textContent = '';
+                        modalActorsHeading.style.display = 'none';
+                    }
+
+                    // Display actors list and images if available
+                    modalActorsContainer.innerHTML = ''; // Clear previous actors
+                    if (show.actorList && show.actorList.length > 0) {
+                        show.actorList.forEach(actor => {
+                            const actorDiv = document.createElement('div');
+                            actorDiv.classList.add('flex', 'flex-row', 'items-center', 'w-full', 'space-x-4');
+
+                            if (actor.imageUrl) {
+                                const actorImg = document.createElement('img');
+                                actorImg.src = actor.imageUrl;
+                                actorImg.alt = actor.name;
+                                actorImg.classList.add('actor-thumbnail', 'object-cover', 'shadow-md');
+                                actorDiv.appendChild(actorImg);
+                            }
+
+                            const actorName = document.createElement('p');
+                            actorName.textContent = actor.name;
+                            actorName.classList.add('text-gray-700', 'text-sm');
+                            actorDiv.appendChild(actorName);
+
+                            modalActorsContainer.appendChild(actorDiv);
+                        });
+                        modalActorsContainer.style.display = 'flex'; // Ensure container is visible
+                    } else {
+                        modalActorsContainer.innerHTML = '';
+                        modalActorsContainer.style.display = 'none'; // Hide if no actors
+                    }
+
+                    currentShowPopupImages = show.popupImages || [show.image]; // Use popupImages or fallback to main image
+                    currentModalImageIndex = 0; // Reset image index
+                    updateModalImage(); // Update the image in the modal
+
+                    showDetailsModal.classList.add('open');
+                } else {
+                    console.error(`Show data not found for index: ${index}`); // Error handling
+                }
+            }
+
+            /**
+             * Closes the show details modal.
+             */
+            function closeModal() {
+                showDetailsModal.classList.remove('open');
+            }
+
+            // Event listeners
+            searchInput.addEventListener('input', function () {
+                renderShowCards(searchInput.value);
+            });
+
+            closeModalBtn.addEventListener('click', closeModal);
+
+            // Close modal when clicking outside the content
+            showDetailsModal.addEventListener('click', (event) => {
+                if (event.target === showDetailsModal) {
+                    closeModal();
+                }
+            });
+
+            // Initial render of show cards
+            renderShowCards();
+
+            // Main Carousel functionality (existing code)
+            const carouselSlides = document.getElementById('carouselSlides');
+            const carouselPrev = document.getElementById('carouselPrev');
+            const carouselNext = document.getElementById('carouselNext');
+            const carouselDotsContainer = document.getElementById('carouselDots');
+            let slides = document.querySelectorAll('.carousel-slide'); // Re-query slides after potential changes
+            let currentIndex = 0;
+            let startX = 0;
+            let endX = 0;
+
+            function createDots() {
+                carouselDotsContainer.innerHTML = ''; // Clear existing dots
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('carousel-dot');
+                    if (index === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(index));
+                    carouselDotsContainer.appendChild(dot);
+                });
+                dots = document.querySelectorAll('.carousel-dot'); // Update dots NodeList
+            }
+
+            function updateCarousel() {
+                const offset = -currentIndex * 100;
+                carouselSlides.style.transform = `translateX(${offset}%)`;
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            function goToSlide(index) {
+                currentIndex = index;
+                if (currentIndex < 0) {
+                    currentIndex = slides.length - 1;
+                } else if (currentIndex >= slides.length) {
+                    currentIndex = 0;
+                }
+                updateCarousel();
+            }
+
+            carouselPrev.addEventListener('click', () => goToSlide(currentIndex - 1));
+            carouselNext.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+            // Touch/Swipe functionality
+            carouselSlides.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+
+            carouselSlides.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+
+                if (diff > 50) { // Swiped left
+                    goToSlide(currentIndex + 1);
+                } else if (diff < -50) { // Swiped right
+                    goToSlide(currentIndex - 1);
+                }
+            });
+
+            // Initial setup for carousel
+            createDots();
+            updateCarousel();
+        });
+    </script>
+
+</body>
+</html>
