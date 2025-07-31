@@ -10,7 +10,255 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome for Social Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif; /* Apply Source Sans Pro to body */
+            background-color: #f8f8f8; /* Light gray background */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif; /* Apply Playfair Display to headings */
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+
+        /* Carousel specific styles */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px; /* Adjust as needed */
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 1rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            height: auto; /* Changed to auto to accommodate content and dots */
+            padding-bottom: 3rem; /* Add padding to make space for dots */
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: auto; /* Make slides fill the container height */
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            cursor: pointer; /* Added cursor pointer to indicate clickability */
+            display: flex; /* Use flex to center content within the slide */
+            flex-direction: column;
+            justify-content: flex-start; /* Align content to the start, not center */
+            align-items: center; /* Horizontally center content */
+            padding-bottom: 2rem; /* Ensure space for dots below slide content */
+        }
+
+            .carousel-slide img {
+                width: 100%;
+                height: auto; /* Make image fill the slide height */
+                max-height: 400px; /* Set a max-height for images */
+                object-fit: cover; /* Ensures images cover the area without distortion */
+                border-radius: 1rem; /* Keep rounded corners */
+            }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 1rem;
+            border-radius: 9999px; /* rounded-full */
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+            .carousel-button:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+            .carousel-button.prev {
+                left: 1rem;
+            }
+
+            .carousel-button.next {
+                right: 1rem;
+            }
+
+        .carousel-dots {
+            position: absolute; /* Position dots absolutely within the container */
+            bottom: 1rem; /* Place dots at the bottom of the carousel container */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            margin-top: 0; /* Remove margin-top as it's positioned with bottom */
+            margin-bottom: 0;
+            z-index: 15; /* Ensure dots are above other content */
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ccc;
+            border-radius: 9999px; /* rounded-full */
+            margin: 0 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+            .carousel-dot.active {
+                background-color: #047857; /* emerald-600 */
+            }
+
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+            .modal-overlay.open {
+                opacity: 1;
+                visibility: visible;
+            }
+
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-2xl */
+            max-width: 90%;
+            width: 600px; /* Increased width for better content display */
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease-in-out;
+            max-height: 90vh; /* Limit height for scrollability */
+            overflow-y: auto; /* Enable scrolling for long content */
+        }
+
+        .modal-overlay.open .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close-button {
+            position: fixed; /* Changed from absolute to fixed */
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #4b5563; /* gray-700 */
+            transition: color 0.2s ease-in-out;
+            z-index: 1001; /* Ensure it's above the modal overlay */
+        }
+
+            .modal-close-button:hover {
+                color: #10b981; /* emerald-500 */
+            }
+
+        /* Modal Image Carousel */
+        .modal-image-carousel {
+            position: relative;
+            width: 100%;
+            height: auto; /* Changed to auto for responsiveness */
+            max-height: 250px; /* Max height to prevent excessive size */
+            overflow: hidden;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+            .modal-image-carousel img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+        .modal-image-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.25rem;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+            .modal-image-nav-button:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+            .modal-image-nav-button.prev {
+                left: 0.5rem;
+            }
+
+            .modal-image-nav-button.next {
+                right: 0.5rem;
+            }
+
+        /* Custom class for actor images */
+        .actor-thumbnail {
+            width: 75px; /* Updated width */
+            height: 75px; /* Updated height */
+            /* Removed border-radius to make it square */
+        }
+
+        /* Styles for "Read More" functionality on show cards (now removed from main cards) */
+        /* These styles are kept for the modal's read more button */
+        .read-more-toggle {
+            font-weight: 600; /* Semi-bold */
+            color: #047857; /* emerald-600 */
+            cursor: pointer;
+            margin-left: 0.25rem; /* ml-1 */
+            transition: color 0.2s ease-in-out;
+        }
+
+            .read-more-toggle:hover {
+                color: #065f46; /* A darker emerald for hover */
+            }
+
+        /* Specific style for Facebook link hover */
+        .facebook-link:hover {
+            color: #0A4D92; /* Deep blue for Facebook hover */
+        }
+
+        /* Specific style for Instagram link hover */
+        .instagram-link:hover {
+            color: #C13584; /* A vibrant pink/purple for Instagram hover */
+        }
+    </style>
 </head>
 <body class="text-gray-800">
 
@@ -29,6 +277,7 @@
                     <li><a href="#shows" class="hover:text-emerald-200 transition duration-300 ease-in-out text-xl font-medium">Առաջիկա ներկայացումներ</a></li>
                     <li><a href="#gallery" class="hover:text-emerald-200 transition duration-300 ease-in-out text-xl font-medium">Պատկերասրահ</a></li>
                     <li><a href="#ticket-ordering" class="hover:text-emerald-200 transition duration-300 ease-in-out text-xl font-medium">Տոմսերի պատվեր</a></li>
+                    <li><a href="#" id="restaurantLink" class="hover:text-emerald-200 transition duration-300 ease-in-out text-xl font-medium">ՀանդԱրտ Ռեստորան</a></li>
                     <li><a href="#contact" class="hover:text-emerald-200 transition duration-300 ease-in-out text-xl font-medium">Կապ</a></li>
                 </ul>
             </nav>
@@ -63,7 +312,7 @@
             <h2 class="text-4xl font-bold text-center mb-12 text-emerald-800">ՀանդԱՐՏ Թատրոնի մասին</h2>
             <div class="flex flex-col md:flex-row items-center md:space-x-12 bg-white bg-opacity-90 p-8 rounded-xl shadow-lg">
                 <div class="md:w-1/2 mb-8 md:mb-0">
-                    <!-- Updated image source for About Us section -->
+                    <!-- Updated image of theater hall -->
                     <img src="https://imgur.com/ZTk5Iec.jpg" alt="ՀանդԱՐՏ Թատրոնի դահլիճ" class="rounded-xl shadow-xl transform transition duration-500 hover:scale-105">
                 </div>
                 <div class="md:w-1/2 text-lg leading-relaxed text-gray-700">
@@ -193,7 +442,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-emerald-800">Տոմսերի պատվեր</h2>
             <div class="text-center">
-                <a href="https://www.tomsarkgh.am/en/venue/3039/%D4%B2%D5%B5%D5%B8%D6%82%D6%80%D5%A1%D5%AF%D5%A1%D5%B6%D5%AB-%D5%80%D5%A1%D5%B6%D5%A4-Art-%D5%A1%D5%B5%D5%A3%D5%AB.html"
+                <a href="https://www.tomsarkgh.am/en/venue/3039/%D4%B2%D5%B5%D5%B8%D6%82%D6%80%D5%A0%D5%AF%D5%A1%D5%B6%D5%AB-%D5%80%D5%A1%D5%B6%D5%A4-Art-%D5%A1%D5%B5%D5%A3%D5%AB.html"
                    target="_blank"
                    class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
                     Այցելել տոմսերի պատվերի կայք
@@ -258,11 +507,11 @@
         <div class="container mx-auto px-4 text-center">
             <p>&copy; 2025 ՀանդԱՐՏ Թատրոն. Բոլոր իրավունքները պաշտպանված են։</p>
             <div class="flex justify-center space-x-6 mt-4">
-                <a href="https://www.facebook.com/HandArt.Byurakan" target="_blank" class="text-white hover:text-emerald-400 transition duration-300 ease-in-out">
+                <a href="https://www.facebook.com/HandArt.Byurakan" target="_blank" class="text-white facebook-link transition duration-300 ease-in-out">
                     <i class="fab fa-facebook-f text-2xl"></i>
                 </a>
-                <!-- Instagram Link Added -->
-                <a href="https://www.instagram.com/handart.garden/" target="_blank" class="text-white hover:text-emerald-400 transition duration-300 ease-in-out">
+                <!-- Instagram Link Added with custom class -->
+                <a href="https://www.instagram.com/handart.garden/" target="_blank" class="text-white instagram-link transition duration-300 ease-in-out">
                     <i class="fab fa-instagram text-2xl"></i>
                 </a>
                 <a href="#" class="hover:text-emerald-400 transition duration-300 ease-in-out">Գաղտնիության քաղաքականություն</a>
@@ -274,7 +523,7 @@
     <!-- Show Details Modal -->
     <div id="showDetailsModal" class="modal-overlay">
         <div class="modal-content">
-            <button class="modal-close-button" id="closeModalBtn">&times;</button>
+            <button class="modal-close-button" id="closeShowModalBtn">&times;</button>
             <h3 id="modalTitle" class="text-3xl font-bold mb-4 text-emerald-800 text-center"></h3>
 
             <!-- Modal Image Carousel -->
@@ -314,6 +563,25 @@
                     Ստանալ տոմսեր
                 </a>
             </div>
+        </div>
+    </div>
+
+    <!-- Restaurant Booking Modal -->
+    <div id="restaurantBookingModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button" id="closeRestaurantModalBtn">&times;</button>
+            <h3 class="text-3xl font-bold mb-4 text-emerald-800 text-center">ՀանդԱրտ Ռեստորան - Սեղանների ամրագրում</h3>
+            <p class="text-gray-700 mb-4">
+                Բարի գալուստ ՀանդԱրտ Ռեստորան, որտեղ դուք կարող եք վայելել համեղ ուտեստներ և հաճելի մթնոլորտ։
+                Խնդրում ենք կապվել մեզ հետ ստորև նշված հեռախոսահամարով՝ սեղան ամրագրելու համար։
+            </p>
+            <div class="flex items-center text-gray-600 mb-4">
+                <svg class="w-6 h-6 mr-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                <span class="text-lg">Հեռախոս: 077 094044</span>
+            </div>
+            <a href="tel:+37477094044" class="w-full inline-block text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out">
+                Զանգահարել ամրագրելու համար
+            </a>
         </div>
     </div>
 
@@ -363,7 +631,7 @@
                 {
                     title: "Սպիտակ արևներ",
                     description: "Հուզիչ մյուզիքլ՝ լի հիշվող մեղեդիներով և սրտաճմլիկ պատմությամբ։", // Reverted to shorter description
-                    fullDescription: "Հուզիչ մյուզիքլ՝ լի հիշվող մեղեդիներով և սրտաճմլիկ պատմությամց։ Բացահայտեք երաժշտության ուժը, որը միավորում է մարդկանց և փոխում ճակատագրերը այս անմոռանալի ներկայացման մեջ։",
+                    fullDescription: "Հուզիչ մյուզիքլ՝ լի հիշվող մեղեդիներով և սրտաճմլիկ պատմությց։ Բացահայտեք երաժշտության ուժը, որը միավորում է մարդկանց և փոխում ճակատագրերը այս անմոռանալի ներկայացման մեջ։",
                     actorsHeading: "",
                     actorList: [],
                     image: "https://imgur.com/mcT4x1h.jpg",
@@ -374,17 +642,17 @@
                     ticketLink: "https://www.tomsarkgh.am/en/event/46918/%D5%8D%D5%BA%D5%AB%D5%BF%D5%A1%D5%AF-%D5%A1%D6%80%D6%87%D5%B6%D5%A5%D6%80.html" // Updated ticket link
                 },
                 {
-                    title: "Ամառային գիշերվա երազ",
+                    title: "Ցանկապատ",
                     description: "Շեքսպիրի հմայիչ կատակերգությունը կախարդական անտառների և խճճված սիրո մասին։",
                     fullDescription: "Վիլյամ Շեքսպիրի հմայիչ կատակերգությունը կախարդական անտառների, փերիի կախարդանքի և խճճված սիրո պատմությունների մասին։ Զգացեք սիրո և ծիծաղի կախարդանքը։",
                     actorsHeading: "",
                     actorList: [],
-                    image: "https://placehold.co/400x250/4CAF50/ffffff?text=Դասական+պիես",
-                    popupImages: ["https://placehold.co/400x250/4CAF50/ffffff?text=Դասական+պիես"],
+                    image: "https://placehold.co/400x250/4CAF50/ffffff?text=Դասական+պիես", // Reverted to placeholder
+                    popupImages: ["https://placehold.co/400x250/4CAF50/ffffff?text=Դասական+պիես"], // Reverted to placeholder
                     dates: "Հունվ 10 - Հունվ 15, 2026",
                     time: "19:00",
                     price: "5500 AMD",
-                    ticketLink: "https://www.tomsarkgh.am/en/venue/3039/%D4%B2%D5%B5%D5%B8%D6%82%D6%80%D5%A1%D5%AF%D5%A1%D5%B6%D5%AB-%D5%80%D5%A1%D5%B6%D5%A4-Art-%D5%A1%D5%B5%D5%A3%D5%AB.html"
+                    ticketLink: "https://www.tomsarkgh.am/en/venue/3039/%D4%B2%D5%B5%D5%B8%D6%82%D6%80%D5%A0%D5%AF%D5%A1%D5%B6%D5%AB-%D5%80%D5%A1%D5%B6%D5%A4-Art-%D5%A1%D5%B5%D5%A3%D5%AB.html"
                 },
                 {
                     title: "Կախարդական ծառատունը",
@@ -397,7 +665,7 @@
                     dates: "Փետ 1 - Փետ 5, 2026",
                     time: "11:00 (Ցերեկային)",
                     price: "3000 AMD",
-                    ticketLink: "https://www.tomsarkgh.am/en/venue/3039/%D4%B2%D5%B5%D5%B8%D6%82%D6%80%D5%A1%D5%AF%D5%A1%D5%B6%D5%AB-%D5%80%D5%A1%D5%B6%D5%A4-Art-%D5%A1%D5%B5%D5%A3%D5%AB.html"
+                    ticketLink: "https://www.tomsarkgh.am/en/venue/3039/%D4%B2%D5%B5%D5%B8%D6%82%D6%80%D5%A0%D5%AF%D5%A1%D5%B6%D5%AB-%D5%80%D5%A1%D5%B6%D5%A4-Art-%D5%A1%D5%B5%D5%A3%D5%AB.html"
                 },
                 {
                     title: "Արձագանքներ քաղաքում",
@@ -410,7 +678,7 @@
                     dates: "Մարտ 1 - Մարտ 7, 2026",
                     time: "19:30",
                     price: "4500 AMD",
-                    ticketLink: "https://www.tomsarkgh.am/en/venue/3039/%D4%B2%D5%B5%D5%B8%D6%82%D6%80%D5%A1%D5%AF%D5%A1%D5%B6%D5%AB-%D5%80%D5%A1%D5%B6%D5%A4-Art-%D5%A1%D5%B5%D5%A3%D5%AB.html"
+                    ticketLink: "https://www.tomsarkgh.am/en/venue/3039/%D4%B2%D5%B5%D5%B8%D6%82%D6%80%D5%A0%D5%AF%D5%A1%D5%B6%D5%AB-%D5%80%D5%A1%D5%B6%D5%A4-Art-%D5%A1%D5%B5%D5%A3%D5%AB.html"
                 }
             ];
 
@@ -419,7 +687,7 @@
 
             // Modal elements
             const showDetailsModal = document.getElementById('showDetailsModal');
-            const closeModalBtn = document.getElementById('closeModalBtn');
+            const closeModalBtn = document.getElementById('closeShowModalBtn'); // Renamed for clarity
             const modalTitle = document.getElementById('modalTitle');
             const modalDescription = document.getElementById('modalDescription'); // Short description
             const modalFullDescription = document.getElementById('modalFullDescription'); // Full description
@@ -430,7 +698,6 @@
             const modalTicketLink = document.getElementById('modalTicketLink');
             const modalActorsHeading = document.getElementById('modalActorsHeading'); // New element for actors heading
             const modalActorsContainer = document.getElementById('modalActorsContainer'); // Container for actors list and images
-            // Removed modalAuthorAndDirectorHeading and modalAuthorAndDirector as they are no longer needed separately
 
             // Modal Image Carousel elements
             const modalImage = document.getElementById('modalImage');
@@ -438,6 +705,12 @@
             const modalImageNext = document.getElementById('modalImageNext');
             let currentModalImageIndex = 0;
             let currentShowPopupImages = [];
+
+            // Restaurant Booking Modal elements
+            const restaurantLink = document.getElementById('restaurantLink');
+            const restaurantBookingModal = document.getElementById('restaurantBookingModal');
+            const closeRestaurantModalBtn = document.getElementById('closeRestaurantModalBtn');
+
 
             /**
              * Renders the show cards based on the showsData array.
@@ -460,33 +733,33 @@
                     const showCard = document.createElement('div');
                     showCard.classList.add('show-card', 'bg-white', 'rounded-xl', 'shadow-lg', 'overflow-hidden', 'transform', 'transition', 'duration-300', 'hover:scale-105', 'hover:shadow-2xl');
                     showCard.innerHTML = `
-                                <img src="${show.image}" alt="${show.title} ներկայացման պատկեր" class="w-full h-48 object-cover">
-                                <div class="p-6 flex flex-col h-full">
-                                    <h3 class="show-title text-2xl font-semibold mb-3 text-emerald-700 cursor-pointer hover:text-emerald-500 transition-colors duration-200" data-index="${index}">
-                                        ${show.title}
-                                    </h3>
-                                    <p class="show-description text-gray-600 mb-4">
-                                        ${show.description}
-                                    </p>
-                                    <div class="flex items-center text-gray-500 mb-2">
-                                        <svg class="w-5 h-5 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-                                        <span>Ամսաթվեր: ${show.dates}</span>
+                                    <img src="${show.image}" alt="${show.title} ներկայացման պատկեր" class="w-full h-48 object-cover">
+                                    <div class="p-6 flex flex-col h-full">
+                                        <h3 class="show-title text-2xl font-semibold mb-3 text-emerald-700 cursor-pointer hover:text-emerald-500 transition-colors duration-200" data-index="${index}">
+                                            ${show.title}
+                                        </h3>
+                                        <p class="show-description text-gray-600 mb-4">
+                                            ${show.description}
+                                        </p>
+                                        <div class="flex items-center text-gray-500 mb-2">
+                                            <svg class="w-5 h-5 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                                            <span>Ամսաթվեր: ${show.dates}</span>
+                                        </div>
+                                        <div class="flex items-center text-gray-500 mb-2">
+                                            <svg class="w-5 h-5 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                                            <span>Ժամը: ${show.time}</span>
+                                        </div>
+                                        <p class="flex items-center text-gray-500 mb-4">
+                                            <i class="fas fa-ticket-alt w-5 h-5 mr-2 text-emerald-500"></i>
+                                            Տոմսերի արժեքը՝ ${show.price}
+                                        </p>
+                                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                                            <a href="${show.ticketLink}" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out text-center">
+                                                Ստանալ տոմսեր
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="flex items-center text-gray-500 mb-2">
-                                        <svg class="w-5 h-5 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
-                                        <span>Ժամը: ${show.time}</span>
-                                    </div>
-                                    <p class="flex items-center text-gray-500 mb-4">
-                                        <i class="fas fa-ticket-alt w-5 h-5 mr-2 text-emerald-500"></i>
-                                        Տոմսերի արժեքը՝ ${show.price}
-                                    </p>
-                                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                                        <a href="${show.ticketLink}" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out text-center">
-                                            Ստանալ տոմսեր
-                                        </a>
-                                    </div>
-                                </div>
-                            `;
+                                `;
                     showCardsContainer.appendChild(showCard);
                 });
 
@@ -607,21 +880,21 @@
             /**
              * Closes the show details modal.
              */
-            function closeModal() {
+            function closeShowModal() { // Renamed for clarity
                 showDetailsModal.classList.remove('open');
             }
 
-            // Event listeners
+            // Event listeners for show details modal
             searchInput.addEventListener('input', function () {
                 renderShowCards(searchInput.value);
             });
 
-            closeModalBtn.addEventListener('click', closeModal);
+            closeModalBtn.addEventListener('click', closeShowModal); // Updated function call
 
-            // Close modal when clicking outside the content
+            // Close show modal when clicking outside the content
             showDetailsModal.addEventListener('click', (event) => {
                 if (event.target === showDetailsModal) {
-                    closeModal();
+                    closeShowModal();
                 }
             });
 
@@ -690,6 +963,29 @@
             // Initial setup for carousel
             createDots();
             updateCarousel();
+
+            // Restaurant Booking Modal Functions
+            function openRestaurantBookingModal() {
+                restaurantBookingModal.classList.add('open');
+            }
+
+            function closeRestaurantBookingModal() {
+                restaurantBookingModal.classList.remove('open');
+            }
+
+            // Event Listeners for Restaurant Booking Modal
+            restaurantLink.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default link behavior
+                openRestaurantBookingModal();
+            });
+
+            closeRestaurantModalBtn.addEventListener('click', closeRestaurantBookingModal);
+
+            restaurantBookingModal.addEventListener('click', (event) => {
+                if (event.target === restaurantBookingModal) {
+                    closeRestaurantBookingModal();
+                }
+            });
         });
     </script>
 
